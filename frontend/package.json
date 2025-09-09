@@ -1,0 +1,68 @@
+{
+  "name": "breakfast-order-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "build:kiosk": "ng build --configuration production",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "build:mobile": "ng build && npx cap sync",
+    "build:mobile:prod": "ng build --configuration production && npx cap sync",
+    "build:mobile:kiosk": "ng build --configuration production && npx cap sync",
+    "android:dev": "ng build && npx cap run android",
+    "android:prod": "ng build --configuration production && npx cap run android",
+    "android:kiosk": "ng build --configuration production && npx cap run android",
+    "android:build": "ng build && npx cap sync android && npx cap open android",
+    "android:build:prod": "ng build --configuration production && npx cap sync android && npx cap open android",
+    "android:sync": "npx cap sync android",
+    "tablet:start": "./start-tablet-emulator.sh",
+    "tablet:deploy": "ng build && npx cap run android",
+    "tablet:deploy:kiosk": "ng build --configuration production && npx cap run android",
+    "kiosk:launcher": "ng build --configuration production && npx cap copy android && npx cap run android --target='R52N70QRZTB'"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^20.1.0",
+    "@angular/cdk": "^20.1.0",
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/material": "^20.1.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "@capacitor/android": "^7.4.2",
+    "@capacitor/cli": "^7.4.2",
+    "@capacitor/core": "^7.4.2",
+    "@capacitor/device": "^7.0.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.5",
+    "@angular/cli": "^20.0.5",
+    "@angular/compiler-cli": "^20.0.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.7.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.8.2"
+  }
+}

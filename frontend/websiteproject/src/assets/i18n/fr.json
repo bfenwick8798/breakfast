@@ -1,0 +1,79 @@
+{
+  "app": {
+    "title": "Commande de Petit-Déjeuner",
+    "language": "Langue"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "menu": "Menu",
+    "cart": "Panier"
+  },
+  "categories": {
+    "main": "Plats Principaux",
+    "side": "Accompagnements",
+    "drink": "Boissons",
+    "extra": "Extras"
+  },
+  "items": {
+    "pancakes": "Crêpes",
+    "eggs_benedict": "Œufs Bénédicte",
+    "french_toast": "Pain Doré",
+    "omelette": "Omelette",
+    "bacon": "Bacon",
+    "sausage": "Saucisse",
+    "hash_browns": "Pommes de Terre Rissolées",
+    "toast": "Pain Grillé",
+    "coffee": "Café",
+    "tea": "Thé",
+    "orange_juice": "Jus d'Orange",
+    "milk": "Lait",
+    "butter": "Beurre",
+    "jam": "Confiture",
+    "syrup": "Sirop d'Érable",
+    "cream": "Crème"
+  },
+  "descriptions": {
+    "pancakes": "Crêpes moelleuses servies avec sirop d'érable",
+    "eggs_benedict": "Œufs pochés sur muffin anglais avec sauce hollandaise",
+    "french_toast": "Brioche épaisse à la cannelle et vanille",
+    "omelette": "Omelette aux trois œufs avec garnitures au choix",
+    "bacon": "Tranches de bacon fumé croustillant",
+    "sausage": "Saucisses de petit-déjeuner maison",
+    "hash_browns": "Pommes de terre rissolées dorées et croustillantes",
+    "toast": "Pain frais, choix blanc ou blé entier",
+    "coffee": "Café fraîchement moulu",
+    "tea": "Sélection de thés premium",
+    "orange_juice": "Jus d'orange fraîchement pressé",
+    "milk": "Lait entier frais",
+    "butter": "Beurre crémeux",
+    "jam": "Confiture de fraises maison",
+    "syrup": "Pur sirop d'érable canadien",
+    "cream": "Crème fraîche"
+  },
+  "actions": {
+    "add_to_order": "Ajouter à la Commande",
+    "remove_from_order": "Retirer",
+    "clear_order": "Vider la Commande",
+    "place_order": "Passer Commande",
+    "increase_quantity": "Augmenter la quantité",
+    "decrease_quantity": "Diminuer la quantité"
+  },
+  "order": {
+    "your_order": "Votre Commande",
+    "total": "Total",
+    "quantity": "Quantité",
+    "empty_order": "Votre commande est vide",
+    "order_placed": "Commande passée avec succès !",
+    "item_added": "Article ajouté à la commande",
+    "item_removed": "Article retiré de la commande"
+  },
+  "common": {
+    "price": "Prix",
+    "currency": "$",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "close": "Fermer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer"
+  }
+}

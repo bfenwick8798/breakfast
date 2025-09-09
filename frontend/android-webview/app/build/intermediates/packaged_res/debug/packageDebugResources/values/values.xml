@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#1976d2</color>
+    <string name="app_name">Breakfast Kiosk</string>
+    <style name="Base.Theme.BreakfastKiosk" parent="Theme.Material3.DayNight">
+        
+        <item name="colorPrimary">#1976d2</item>
+        <item name="colorPrimaryVariant">#1565c0</item>
+        <item name="colorOnPrimary">#ffffff</item>
+    </style>
+    <style name="Theme.BreakfastKiosk" parent="Base.Theme.BreakfastKiosk"/>
+    <style name="Theme.BreakfastKiosk.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

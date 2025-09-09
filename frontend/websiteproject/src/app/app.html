@@ -1,0 +1,316 @@
+<main class="main">
+  <div class="content">
+    <!-- Clear Button in Top Left -->
+    <div class="clear-button-container">
+      <button mat-icon-button (click)="clearForm()" [title]="translationService.t.clearForm" class="clear-button" 
+              [style.color]="'#d32f2f'">
+        <mat-icon [style.color]="'#d32f2f'" [style.fill]="'#d32f2f'">refresh</mat-icon>
+      </button>
+    </div>
+    
+    <!-- Small Language Toggle Button in Top Right -->
+    <div class="language-toggle">
+      <button mat-icon-button (click)="translationService.toggleLanguage()" 
+              [title]="'Switch to ' + translationService.t.languageSwitch"
+              [style.color]="'#0078d4'">
+        {{ translationService.t.languageSwitch }}
+      </button>
+    </div>
+    <br>
+    <h1 style="color: black">{{ translationService.t.title }}</h1>
+    
+    <!-- Date and Time Selection -->
+    <div class="datetime-section">
+      <div class="datetime-container">
+        <mat-form-field appearance="outline" class="date-field">
+          <mat-label>{{ translationService.t.date }}</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" readonly>
+          <mat-datepicker-toggle matIconSuffix [for]="picker" matRipple></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="time-field">
+          <mat-label>{{ translationService.t.time }}</mat-label>
+          <mat-select [(ngModel)]="selectedTime" matRipple>
+            <mat-option *ngFor="let time of availableTimes" [value]="time.value">
+              {{ time.display() }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <div class="room-container">
+        <mat-form-field appearance="outline" class="room-field" [class.locked-field]="orderSubmitted">
+          <mat-label>{{ translationService.t.roomNumber }}</mat-label>
+          <input matInput type="number" [(ngModel)]="roomNumber" [placeholder]="translationService.t.enterRoomNumber" min="1" #roomInput 
+                 [disabled]="orderSubmitted" (click)="onLockedFieldClick($event)">
+          <div matSuffix class="number-controls">
+            <button type="button" class="number-btn increment-btn" (click)="orderSubmitted ? onLockedFieldClick($event) : incrementRoom()" 
+                    [disabled]="orderSubmitted" matRipple>
+              <svg viewBox="0 0 24 24" width="16" height="16">
+                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              </svg>
+            </button>
+            <button type="button" class="number-btn decrement-btn" (click)="orderSubmitted ? onLockedFieldClick($event) : decrementRoom()" 
+                    [disabled]="orderSubmitted" matRipple>
+              <svg viewBox="0 0 24 24" width="16" height="16">
+                <path fill="currentColor" d="M19 13H5v-2h14v2z"/>
+              </svg>
+            </button>
+          </div>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="name-field" [class.locked-field]="orderSubmitted">
+          <mat-label>{{ translationService.t.firstName }}</mat-label>
+          <input matInput type="text" [(ngModel)]="firstName" [placeholder]="translationService.t.enterFirstName" 
+                 [disabled]="orderSubmitted" (click)="onLockedFieldClick($event)">
+        </mat-form-field>
+      </div>
+    </div>
+    
+    <mat-expansion-panel>
+      <mat-expansion-panel-header matRipple>
+        <mat-panel-title>
+          {{ translationService.t.eggs.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      
+      <div class="custom-grid">
+        <div class="grid-item">
+          <div class="tile-content">
+            <h3>
+              {{ translationService.t.eggs.style }}
+            </h3>
+            <custom-radio-group [(ngModel)]="eggStyle">
+                <custom-radio-button value="">
+                {{ translationService.t.eggs.none }}
+                </custom-radio-button>
+              <custom-radio-button value="scrambled">
+                  {{ translationService.t.eggs.scrambled }}
+              </custom-radio-button>
+              <custom-radio-button value="boiled">
+                  {{ translationService.t.eggs.boiled }}
+              </custom-radio-button>
+              <custom-radio-button value="poached">
+                  {{ translationService.t.eggs.poached }}
+              </custom-radio-button>
+              <custom-radio-button value="over">
+                {{ translationService.t.eggs.over }}
+              </custom-radio-button>
+            </custom-radio-group>
+            <div class="over-selection" [style.display]="eggStyle === 'over' ? 'block' : 'none'">
+              <custom-radio-group [(ngModel)]="overStyle" class="over-options">
+                <custom-radio-button value="easy" class="over-option">{{ translationService.t.eggs.easy }}</custom-radio-button>
+                <custom-radio-button value="medium" class="over-option">{{ translationService.t.eggs.medium }}</custom-radio-button>
+                <custom-radio-button value="hard" class="over-option">{{ translationService.t.eggs.hard }}</custom-radio-button>
+              </custom-radio-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header matRipple>
+        <mat-panel-title>
+          {{ translationService.t.sides.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      
+      <div class="custom-grid">
+        <div class="grid-item">
+          <div class="tile-content">
+            <div class="sides-header">
+              <h3>{{ translationService.t.sides.title }}</h3>
+              <h4>{{ translationService.t.sides.asManyAsYouLike }}</h4>
+            </div>
+            <div class="sides-options">
+              <div class="side-option">
+                <custom-checkbox id="bacon-sides" [(ngModel)]="baconSidesSelected">{{ translationService.t.sides.bacon }}</custom-checkbox>
+              </div>
+              <div class="side-option">
+                <custom-checkbox id="fries-sides" [(ngModel)]="friesSidesSelected">{{ translationService.t.sides.homeFries }}</custom-checkbox>
+              </div>
+              <div class="side-option">
+                <custom-checkbox id="beans-sides" [(ngModel)]="beansSidesSelected">{{ translationService.t.sides.beans }}</custom-checkbox>
+              </div>
+              <div class="side-option">
+                <custom-checkbox id="toast-sides" [(ngModel)]="toastSelected">{{ translationService.t.sides.toast }}</custom-checkbox>
+              </div>
+            </div>
+            <div class="bread-selection" [style.display]="toastSelected ? 'block' : 'none'">
+              <custom-radio-group [(ngModel)]="breadType" class="bread-options">
+                <custom-radio-button value="white" class="bread-option">{{ translationService.t.sides.white }}</custom-radio-button>
+                <custom-radio-button value="wheat" class="bread-option">{{ translationService.t.sides.wholeWheat }}</custom-radio-button>
+              </custom-radio-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header matRipple>
+        <mat-panel-title>
+          {{ translationService.t.pancakes.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      
+      <div class="custom-grid">
+        <div class="grid-item">
+          <div class="tile-content">
+            <div class="sides-header">
+              <h3>{{ translationService.t.pancakes.toppings }}</h3>
+              <h4>{{ translationService.t.pancakes.asManyAsYouLike }}</h4>
+            </div>
+            <div class="sides-options">
+              <div class="side-option">
+                <custom-checkbox id="pancakes" [(ngModel)]="pancakesSelected">{{ translationService.t.pancakes.pancakes }}</custom-checkbox>
+              </div>
+              <div class="side-option">
+                <custom-checkbox id="berries-pancakes" [(ngModel)]="berriesPancakesSelected">{{ translationService.t.pancakes.berries }}</custom-checkbox>
+              </div>
+              <div class="side-option" style="display: none">
+                <custom-checkbox id="bacon-pancakes" [(ngModel)]="baconPancakesSelected">{{ translationService.t.pancakes.bacon }}</custom-checkbox>
+              </div>
+              <div class="side-option">
+                <custom-checkbox id="whipped-cream-pancakes" [(ngModel)]="whippedCreamPancakesSelected">{{ translationService.t.pancakes.whippedCream }}</custom-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    
+    <mat-expansion-panel>
+      <mat-expansion-panel-header matRipple>
+        <mat-panel-title>
+          {{ translationService.t.waffles.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      
+      <div class="custom-grid">
+        <div class="grid-item">
+          <div class="tile-content">
+            <div class="sides-header">
+              <h3>{{ translationService.t.waffles.options }}</h3>
+              <h4></h4>
+            </div>
+            <div class="sides-options">
+              <div class="side-option">
+                <custom-checkbox id="waffles" [(ngModel)]="wafflesSelected">{{ translationService.t.waffles.waffles }}</custom-checkbox>
+              </div>
+              <div class="side-option" style="display: none">
+                <custom-checkbox id="bacon-waffles" [(ngModel)]="baconWafflesSelected">{{ translationService.t.waffles.bacon }}</custom-checkbox>
+              </div>
+              <div class="side-option">
+                <custom-checkbox id="berries-waffles" [(ngModel)]="berriesWafflesSelected">{{ translationService.t.waffles.berries }}</custom-checkbox>
+              </div>
+              <div class="side-option">
+                <custom-checkbox id="whipped-cream-waffles" [(ngModel)]="whippedCreamWafflesSelected">{{ translationService.t.waffles.whippedCream }}</custom-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    
+    
+    
+    <mat-expansion-panel>
+      <mat-expansion-panel-header matRipple>
+        <mat-panel-title>
+          {{ translationService.t.drinks.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      
+      <div class="custom-grid">
+        <div class="grid-item">
+          <div class="tile-content">
+            <div class="sides-header">
+              <h3>{{ translationService.t.drinks.title }}</h3>
+            </div>
+            
+            <!-- Cold Drinks Section -->
+            <div class="drink-category">
+              <h4 class="drink-category-title">{{ translationService.t.drinks.coldDrinks }}</h4>
+              <div class="sides-options">
+                <custom-radio-group [(ngModel)]="selectedColdDrink">
+                  <custom-radio-button value="">{{ translationService.t.drinks.none }}</custom-radio-button>
+                  <custom-radio-button value="water">{{ translationService.t.drinks.water }}</custom-radio-button>
+                  <custom-radio-button value="milk">{{ translationService.t.drinks.milk }}</custom-radio-button>
+                  <custom-radio-button value="juice">{{ translationService.t.drinks.juice }}</custom-radio-button>
+                </custom-radio-group>
+                <div class="juice-selection" [style.display]="selectedColdDrink === 'juice' ? 'block' : 'none'">
+                  <custom-radio-group [(ngModel)]="juiceType" class="juice-options">
+                    <custom-radio-button value="apple" class="juice-option">{{ translationService.t.drinks.apple }}</custom-radio-button>
+                    <custom-radio-button value="orange" class="juice-option">{{ translationService.t.drinks.orange }}</custom-radio-button>
+                  </custom-radio-group>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Hot Drinks Section -->
+            <div class="drink-category">
+              <h4 class="drink-category-title">{{ translationService.t.drinks.hotDrinks }}</h4>
+              <div class="sides-options">
+                <custom-radio-group [(ngModel)]="selectedHotDrink">
+                  <custom-radio-button value="">{{ translationService.t.drinks.none }}</custom-radio-button>
+                  <custom-radio-button value="coffee">{{ translationService.t.drinks.coffee }}</custom-radio-button>
+                  <custom-radio-button value="tea">{{ translationService.t.drinks.tea }}</custom-radio-button>
+                </custom-radio-group>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    
+    <!-- Special Options Section -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header matRipple>
+        <mat-panel-title>
+          {{ translationService.t.specialOptions }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      
+      <div class="custom-grid">
+        <div class="grid-item">
+          <div class="tile-content">
+            <div class="sides-header">
+              <h3>{{ translationService.t.specialOptions }}</h3>
+              <h4>{{ translationService.t.specialOptionsDescription }}</h4>
+            </div>
+            <div class="special-options-container">
+              <mat-form-field appearance="outline" class="special-options-field">
+                <mat-label>{{ translationService.t.specialOptions }}</mat-label>
+                <textarea 
+                  matInput
+                  [(ngModel)]="specialOptions"
+                  [placeholder]="translationService.t.specialOptionsPlaceholder"
+                  rows="3"
+                  class="special-options-textarea">
+                </textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    
+    <button 
+      mat-stroked-button 
+      color="primary" 
+      [disabled]="!roomNumber || !firstName || firstName.trim() === '' || isSubmittingOrder" 
+      (click)="submitOrder()"
+      class="submit-button">
+      <mat-spinner 
+        *ngIf="isSubmittingOrder" 
+        diameter="20" 
+        class="submit-spinner">
+      </mat-spinner>
+      <span [class.spinner-text]="isSubmittingOrder">
+        {{ isSubmittingOrder ? translationService.t.submittingOrder : translationService.t.submitOrder }}
+      </span>
+    </button>
+  </div>
+</main>
+<router-outlet />

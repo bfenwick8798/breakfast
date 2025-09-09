@@ -1,0 +1,57 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Initialize React Native Expo App",
+			"type": "shell",
+			"command": "npx create-expo-app@latest . --template blank",
+			"group": "build"
+		},
+		{
+			"label": "Initialize React Native Expo App",
+			"type": "shell",
+			"command": "npx create-expo-app@latest BreakfastOrders --template blank",
+			"group": "build"
+		},
+		{
+			"label": "Create Expo App with Name",
+			"type": "shell",
+			"command": "npx create-expo-app@latest BreakfastOrders --template blank",
+			"group": "build"
+		},
+		{
+			"label": "Start React Native Development Server",
+			"type": "shell",
+			"command": "cd BreakfastOrders && npm start",
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Install Expo CLI",
+			"type": "shell",
+			"command": "npm install -g @expo/cli",
+			"group": "build"
+		},
+		{
+			"label": "Start Development Server",
+			"type": "shell",
+			"command": "cd BreakfastOrders && npx expo start",
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Start Web Development Server",
+			"type": "shell",
+			"command": "cd BreakfastOrders && npx expo start --web",
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Start Expo Development Server",
+			"type": "shell",
+			"command": "cd BreakfastOrders && npx expo start",
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}

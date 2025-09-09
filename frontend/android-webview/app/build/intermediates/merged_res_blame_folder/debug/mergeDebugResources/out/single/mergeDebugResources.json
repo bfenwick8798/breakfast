@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-debug-33:/layout_activity_main.xml.flat",
+        "source": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-debug-33:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-main-35:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.innatthecape.breakfast.app-debug-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.innatthecape.breakfast.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-debug-33:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-main-35:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-debug-33:/drawable_ic_wifi.xml.flat",
+        "source": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-main-35:/drawable/ic_wifi.xml"
+    },
+    {
+        "merged": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-debug-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-debug-33:/xml_backup_rules.xml.flat",
+        "source": "/home/ben/.gradle/daemon/8.11.1/com.innatthecape.breakfast.app-main-35:/xml/backup_rules.xml"
+    }
+]

@@ -1,0 +1,1162 @@
+// Modern Angular Material Design with Azure/Blue theme
+@use '@angular/material' as mat;
+
+// Performance optimizations for Android tablets
+* {
+  // Enable hardware acceleration for better performance
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+// Disable complex animations on mobile/touch devices for better performance
+@media (max-width: 768px), (pointer: coarse), (hover: none) {
+  * {
+    // Reduce animation complexity
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  // Disable transform animations that can cause jitters
+  .mat-expansion-panel,
+  mat-expansion-panel {
+    transform: none !important;
+    will-change: auto !important;
+  }
+  
+  // Optimize expansion panel animations specifically
+  .mat-expansion-panel-body,
+  .mat-expansion-panel-content {
+    transition: height 0.15s ease !important;
+  }
+}
+
+// Main layout adjustments for header component
+.main {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.content {
+  padding: 16px;
+}
+
+// Main content spacing to account for fixed header
+.main-content {
+  margin-top: 48px; // Height of the fixed header
+  padding-top: 16px !important;
+}
+
+// Immediate override to prevent Material Design flash on mobile
+@media (max-width: 768px) {
+  .mat-icon-button .mat-icon,
+  .mat-mdc-icon-button .mat-icon {
+    color: inherit !important;
+  }
+  
+  .clear-button .mat-icon {
+    color: #d32f2f !important;
+  }
+  
+  .language-toggle button .mat-icon {
+    color: #0078d4 !important;
+  }
+}
+
+// Additional mobile detection for various devices
+@media (max-width: 768px), (pointer: coarse), (hover: none) {
+  .mat-icon-button .mat-icon,
+  .mat-mdc-icon-button .mat-icon {
+    color: inherit !important;
+  }
+  
+  .clear-button .mat-icon {
+    color: #d32f2f !important;
+  }
+  
+  .language-toggle button .mat-icon {
+    color: #0078d4 !important;
+  }
+}
+
+// Even more specific mobile targeting
+@media screen and (max-width: 768px) {
+  .clear-button.mat-icon-button .mat-icon,
+  .clear-button.mat-mdc-icon-button .mat-icon {
+    color: #d32f2f !important;
+    fill: #d32f2f !important;
+  }
+  
+  .language-toggle button.mat-icon-button .mat-icon,
+  .language-toggle button.mat-mdc-icon-button .mat-icon {
+    color: #0078d4 !important;
+    fill: #0078d4 !important;
+  }
+}
+
+// Enhanced Material Design 3 variables with Azure/Blue theme
+:root {
+  // Azure/Blue theme colors
+  --md-sys-color-primary: #0078d4;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #e1f5fe;
+  --md-sys-color-on-primary-container: #003c71;
+  
+  --md-sys-color-secondary: #1976d2;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #bbdefb;
+  --md-sys-color-on-secondary-container: #0d47a1;
+  
+  --md-sys-color-tertiary: #2196f3;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #e3f2fd;
+  --md-sys-color-on-tertiary-container: #0277bd;
+  
+  // Error colors for clear button
+  --md-sys-color-error: #d32f2f;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffebee;
+  --md-sys-color-on-error-container: #b71c1c;
+  
+  // Modern surface colors
+  --md-sys-color-surface: #fafafa;
+  --md-sys-color-surface-dim: #f5f5f5;
+  --md-sys-color-surface-bright: #ffffff;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f8f9fa;
+  --md-sys-color-surface-container: #f0f4f8;
+  --md-sys-color-surface-container-high: #e8f4fd;
+  --md-sys-color-surface-container-highest: #e1f5fe;
+  --md-sys-color-on-surface: #1a1a1a;
+  --md-sys-color-on-surface-variant: #424242;
+  
+  --md-sys-color-outline: #9e9e9e;
+  --md-sys-color-outline-variant: #e0e0e0;
+  
+  // Typography improvements
+  --md-sys-typescale-display-large-font-size: 3rem;
+  --md-sys-typescale-headline-large-font-size: 2rem;
+  --md-sys-typescale-headline-medium-font-size: 1.75rem;
+  --md-sys-typescale-title-large-font-size: 1.25rem;
+  --md-sys-typescale-body-large-font-size: 1rem;
+  --md-sys-typescale-body-medium-font-size: 0.875rem;
+  --md-sys-typescale-label-large-font-size: 0.875rem;
+  
+  // Enhanced shape tokens
+  --md-sys-shape-corner-small: 4px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 24px;
+  
+  // Enhanced elevation
+  --md-sys-elevation-level1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --md-sys-elevation-level2: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+  --md-sys-elevation-level3: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  --md-sys-elevation-level4: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+  
+  // Animation variables
+  --transition-duration: 280ms;
+  --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Modern main container with glass-like effect
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f4f8 50%, #e1f5fe 100%);
+  font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+  
+  @media (max-width: 768px) {
+    padding: 16px;
+    align-items: flex-start;
+  }
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  padding: 32px;
+  box-shadow: var(--md-sys-elevation-level3);
+  max-width: 700px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  
+  // Gradient border effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      var(--md-sys-color-primary) 0%, 
+      var(--md-sys-color-secondary) 50%, 
+      var(--md-sys-color-tertiary) 100%);
+    border-radius: var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large) 0 0;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 24px;
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
+}
+
+// Enhanced typography
+h1 {
+  font-size: var(--md-sys-typescale-headline-large-font-size);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 32px 0;
+  text-align: center;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+}
+
+h3 {
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 16px 0;
+  letter-spacing: 0;
+}
+
+h4 {
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  font-weight: 400;
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0 0 12px 0;
+  letter-spacing: 0.01em;
+}
+
+// Language toggle button - small and in top right
+.language-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  
+  button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--md-sys-color-primary) !important;
+    background-color: var(--md-sys-color-surface) !important;
+    border-radius: 50%;
+    transition: all var(--transition-duration) var(--transition-easing);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      background-color: rgba(0, 120, 212, 0.08) !important;
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 768px) {
+      background-color: white !important;
+      border: 1px solid var(--md-sys-color-outline-variant) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      color: var(--md-sys-color-primary) !important;
+      
+      // Ensure text is not grey on mobile
+      .mat-button-wrapper,
+      .mdc-button__label {
+        color: var(--md-sys-color-primary) !important;
+      }
+    }
+  }
+}
+
+// Clear button styling (opposite to language toggle)
+.clear-button-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.clear-button {
+  background-color: var(--md-sys-color-surface-container) !important;
+  color: var(--md-sys-color-error) !important;
+  border: 2px solid var(--md-sys-color-error) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background-color: var(--md-sys-color-error-container) !important;
+    color: var(--md-sys-color-on-error-container) !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+    background-color: var(--md-sys-color-error) !important;
+    color: var(--md-sys-color-on-error) !important;
+  }
+  
+  @media (max-width: 768px) {
+    background-color: white !important;
+    border: 2px solid var(--md-sys-color-error) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: var(--md-sys-color-error) !important;
+    
+    // Ensure icon and text are not grey on mobile - multiple selectors for Material Design
+    .mat-icon,
+    .mdc-button__label,
+    .mat-button-wrapper,
+    mat-icon {
+      color: var(--md-sys-color-error) !important;
+    }
+    
+    // Even more specific selector for stubborn Material icons
+    &.mat-mdc-button .mat-icon,
+    &.mdc-button .mat-icon,
+    &.mat-icon-button .mat-icon,
+    &.mat-mdc-icon-button .mat-icon {
+      color: var(--md-sys-color-error) !important;
+    }
+  }
+  
+  .mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    color: inherit;
+    
+    // Prevent Material Design from changing color during initialization
+    &[data-mat-icon-name="refresh"] {
+      color: var(--md-sys-color-error) !important;
+    }
+  }
+  
+  &:hover .mat-icon {
+    transform: rotate(180deg);
+  }
+}
+
+// Dark mode toggle button - small and in top left
+.dark-mode-toggle {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  
+  button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    color: var(--md-sys-color-primary);
+    border-radius: 50%;
+    transition: all var(--transition-duration) var(--transition-easing);
+    
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+    
+    &:hover {
+      background-color: rgba(0, 120, 212, 0.08);
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Date and time section improvements
+.datetime-section {
+  margin-bottom: 24px;
+  
+  .datetime-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+    
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+  
+  .room-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+}
+
+// Enhanced form fields
+::ng-deep .mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    border-radius: var(--md-sys-shape-corner-medium);
+    transition: all var(--transition-duration) var(--transition-easing);
+  }
+  
+  &:hover .mat-mdc-text-field-wrapper {
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+}
+
+// Number controls styling
+.number-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 8px;
+  
+  .number-btn {
+    background: var(--md-sys-color-surface-container);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: var(--md-sys-shape-corner-small);
+    width: 24px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-duration) var(--transition-easing);
+    
+    &:hover {
+      background: var(--md-sys-color-surface-container-high);
+      border-color: var(--md-sys-color-outline);
+    }
+    
+    svg {
+      opacity: 0.7;
+    }
+  }
+}
+
+// Enhanced expansion panels - Optimized for Android performance
+::ng-deep mat-expansion-panel {
+  background: #f8f9fa !important;
+  border: 1px solid var(--md-sys-color-outline-variant) !important;
+  border-radius: 20px !important;
+  margin-bottom: 16px !important;
+  box-shadow: var(--md-sys-elevation-level1) !important;
+  overflow: hidden !important;
+  
+  // Disable complex transitions for better performance
+  transition: none !important;
+  transform: none !important;
+  will-change: auto !important;
+  
+  &:hover {
+    box-shadow: var(--md-sys-elevation-level1) !important;
+    transform: none !important;
+  }
+  
+  &.mat-expanded {
+    box-shadow: var(--md-sys-elevation-level2) !important;
+  }
+}
+
+::ng-deep mat-expansion-panel-header {
+  background: transparent !important;
+  color: var(--md-sys-color-on-surface) !important;
+  padding: 20px 24px !important;
+  height: 72px !important;
+  
+  // Simplify transitions for better performance
+  transition: background-color 0.15s ease !important;
+  
+  &:hover {
+    background: var(--md-sys-color-surface-container) !important;
+  }
+  
+  &.mat-expanded {
+    background: var(--md-sys-color-surface-container-high) !important;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant) !important;
+  }
+}
+
+// Disable Material's built-in expansion animations for better performance
+::ng-deep .mat-expansion-panel-content {
+  transition: height 0.15s ease !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  transition: none !important;
+}
+
+::ng-deep mat-panel-title {
+  color: var(--md-sys-color-on-surface) !important;
+  font-size: var(--md-sys-typescale-title-large-font-size) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 24px !important;
+  background: var(--md-sys-color-surface-container-high) !important;
+}
+
+::ng-deep .mat-expansion-indicator {
+  color: var(--md-sys-color-primary) !important;
+}
+
+// Grid and tile improvements
+.custom-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  width: 100%;
+}
+
+.grid-item {
+  width: 100%;
+  transition: all var(--transition-duration) var(--transition-easing);
+}
+
+.tile-content {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-medium);
+  padding: 20px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: all var(--transition-duration) var(--transition-easing);
+  
+  &:hover {
+    background: var(--md-sys-color-surface-container-highest);
+    box-shadow: var(--md-sys-elevation-level1);
+  }
+}
+
+// Sides section improvements
+.sides-header {
+  margin-bottom: 16px;
+  
+  h3 {
+    margin-bottom: 4px;
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  h4 {
+    color: var(--md-sys-color-on-surface-variant);
+    font-style: italic;
+  }
+}
+
+.sides-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  
+  .side-option {
+    background: var(--md-sys-color-surface-container-low);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: var(--md-sys-shape-corner-medium);
+    padding: 12px;
+    transition: all var(--transition-duration) var(--transition-easing);
+    
+    &:hover {
+      background: var(--md-sys-color-surface-container);
+      border-color: var(--md-sys-color-outline);
+    }
+  }
+}
+
+// Enhanced conditional selections
+.over-selection, .bread-selection {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--md-sys-color-surface-container-highest);
+  border-radius: var(--md-sys-shape-corner-medium);
+  border-left: 3px solid var(--md-sys-color-primary);
+  animation: slideIn 0.3s var(--transition-easing);
+}
+
+.juice-selection {
+  margin-top: 12px;
+  margin-left: 20px;
+  padding: 12px;
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-sys-shape-corner-small);
+  border-left: 2px solid var(--md-sys-color-secondary);
+  animation: slideIn 0.3s var(--transition-easing);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.over-options, .bread-options, .juice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// Submit button enhancement
+::ng-deep button[mat-stroked-button] {
+  border-radius: var(--md-sys-shape-corner-large) !important;
+  padding: 12px 32px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  transition: all var(--transition-duration) var(--transition-easing) !important;
+  margin-top: 32px !important;
+  width: 100% !important;
+  height: 48px !important;
+  
+  &:not(:disabled) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--md-sys-elevation-level3);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+// Submit button and loading spinner styling
+.submit-button {
+  margin-top: 20px;
+  min-height: 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  &[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.submit-spinner {
+  // Material spinner styling
+  ::ng-deep .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: currentColor;
+  }
+  
+  // Ensure spinner is visible and properly sized
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.spinner-text {
+  // Ensure text alignment when spinner is present
+  display: inline-block;
+  
+  &.spinner-text {
+    margin-left: 4px;
+  }
+}
+
+// Enhanced button styling with loading state
+.submit-button.mat-mdc-button {
+  transition: all 0.3s ease;
+  
+  &:not([disabled]):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 120, 212, 0.3);
+  }
+  
+  &[disabled] {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+// Loading state animation
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.submit-button[disabled] .spinner-text {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+// Special Options styling
+.special-options-container {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.special-options-field {
+  width: 100%;
+}
+
+.special-options-textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.special-options-field .mat-mdc-form-field-wrapper {
+  width: 100%;
+}
+
+.special-options-field .mat-mdc-text-field-wrapper {
+  width: 100%;
+}
+
+// Enhanced form field styling for special options
+.special-options-field .mat-mdc-form-field-outline {
+  border-color: var(--md-sys-color-outline);
+}
+
+.special-options-field.mat-focused .mat-mdc-form-field-outline {
+  border-color: var(--md-sys-color-primary);
+  border-width: 2px;
+}
+
+.special-options-field .mat-mdc-form-field-label {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.special-options-field.mat-focused .mat-mdc-form-field-label {
+  color: var(--md-sys-color-primary);
+}
+
+// Drink category styling
+.drink-category {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-medium);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.drink-category-title {
+  color: var(--md-sys-color-primary);
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--md-sys-color-primary-container);
+  display: flex;
+  align-items: center;
+  
+  &::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background-color: var(--md-sys-color-primary);
+    border-radius: 2px;
+    margin-right: 8px;
+  }
+}
+
+// Enhanced drink selection styling
+.drink-category .sides-options {
+  margin-top: 8px;
+}
+
+.drink-category .custom-radio-group {
+  gap: 8px;
+}
+
+.drink-category .juice-selection {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-small);
+  border-left: 3px solid var(--md-sys-color-secondary);
+}
+
+.drink-category .juice-options {
+  gap: 8px;
+}
+
+// Responsive drink category layout
+@media (max-width: 768px) {
+  .drink-category {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .drink-category-title {
+    font-size: 1rem;
+    
+    &::before {
+      width: 3px;
+      height: 16px;
+    }
+  }
+}
+
+// Responsive enhancements
+@media (max-width: 768px) {
+  .content {
+    border-radius: var(--md-sys-shape-corner-large);
+  }
+  
+  .datetime-container, .room-container {
+    grid-template-columns: 1fr;
+  }
+  
+  ::ng-deep mat-expansion-panel-header {
+    padding: 16px 20px !important;
+    height: 64px !important;
+  }
+  
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 12px;
+  }
+  
+  .content {
+    padding: 20px;
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .tile-content {
+    padding: 16px;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Focus improvements
+::ng-deep .mat-mdc-form-field:focus-within {
+  .mat-mdc-text-field-wrapper {
+    box-shadow: 0 0 0 2px var(--md-sys-color-primary);
+  }
+}
+
+// Success and error snackbar styling
+::ng-deep .success-snackbar {
+  background: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
+  
+  // Position below wifi header
+  .mat-mdc-snack-bar-container {
+    margin-top: 48px !important;
+    z-index: 1001 !important;
+  }
+}
+
+::ng-deep .error-snackbar {
+  background: #d32f2f !important;
+  color: white !important;
+  
+  // Position below wifi header
+  .mat-mdc-snack-bar-container {
+    margin-top: 48px !important;
+    z-index: 1001 !important;
+  }
+}
+
+// General snackbar positioning to account for wifi header
+::ng-deep .mat-mdc-snack-bar-container {
+  margin-top: 48px !important;
+  z-index: 1001 !important;
+}
+
+// Locked field styling
+.locked-field {
+  ::ng-deep .mat-mdc-form-field-wrapper {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    background-color: var(--md-sys-color-surface-container-low) !important;
+  }
+  
+  ::ng-deep .mat-mdc-form-field-outline {
+    opacity: 0.5;
+  }
+  
+  // Show cursor as not-allowed when hovering over locked fields
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
+// Tooltip styling
+.submit-to-edit-tooltip {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px !important;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
+}
+
+// Mobile-specific overrides to prevent grey icons and text
+@media (max-width: 768px) {
+  // Force white background and proper colors for top bar buttons
+  .language-toggle button,
+  .clear-button {
+    background-color: white !important;
+    
+    // Override any Material Design grey colors on mobile
+    .mat-icon,
+    mat-icon,
+    .mdc-button__label,
+    .mat-button-wrapper {
+      color: inherit !important;
+    }
+  }
+  
+  // Specific override for language toggle
+  .language-toggle button {
+    color: var(--md-sys-color-primary) !important;
+    
+    .mat-icon,
+    mat-icon,
+    .mdc-button__label,
+    .mat-button-wrapper {
+      color: var(--md-sys-color-primary) !important;
+    }
+  }
+  
+  // Specific override for clear button
+  .clear-button {
+    color: var(--md-sys-color-error) !important;
+    
+    .mat-icon,
+    mat-icon,
+    .mdc-button__label,
+    .mat-button-wrapper {
+      color: var(--md-sys-color-error) !important;
+    }
+  }
+  
+  // Deep override for stubborn Material Design styles
+  ::ng-deep .clear-button .mat-icon,
+  ::ng-deep .clear-button mat-icon {
+    color: var(--md-sys-color-error) !important;
+    fill: var(--md-sys-color-error) !important;
+  }
+  
+  ::ng-deep .language-toggle button .mat-icon,
+  ::ng-deep .language-toggle button mat-icon {
+    color: var(--md-sys-color-primary) !important;
+    fill: var(--md-sys-color-primary) !important;
+  }
+}
+
+// Additional mobile-specific targeting with different media queries
+@media (max-width: 768px), (pointer: coarse), (hover: none) {
+  .clear-button.mat-icon-button,
+  .clear-button.mat-mdc-icon-button {
+    color: #d32f2f !important;
+    
+    .mat-icon {
+      color: #d32f2f !important;
+      fill: #d32f2f !important;
+    }
+  }
+  
+  .language-toggle button.mat-icon-button,
+  .language-toggle button.mat-mdc-icon-button {
+    color: #0078d4 !important;
+    
+    .mat-icon {
+      color: #0078d4 !important;
+      fill: #0078d4 !important;
+    }
+  }
+}
+
+// Touch device specific overrides
+@media (hover: none) and (pointer: coarse) {
+  .clear-button .mat-icon {
+    color: #d32f2f !important;
+    fill: #d32f2f !important;
+  }
+  
+  .language-toggle button .mat-icon {
+    color: #0078d4 !important;
+    fill: #0078d4 !important;
+  }
+}
+
+// Global aggressive overrides to prevent Material Design from overriding colors
+// This ensures colors are applied immediately and don't get overridden during lifecycle
+::ng-deep {
+  // Global override for clear button - always apply red color
+  .clear-button.mat-mdc-icon-button .mat-icon,
+  .clear-button.mat-icon-button .mat-icon,
+  .clear-button .mat-icon {
+    color: #d32f2f !important;
+    fill: #d32f2f !important;
+  }
+  
+  // Global override for language toggle - always apply blue color
+  .language-toggle button.mat-mdc-icon-button .mat-icon,
+  .language-toggle button.mat-icon-button .mat-icon,
+  .language-toggle button .mat-icon {
+    color: #0078d4 !important;
+    fill: #0078d4 !important;
+  }
+  
+  @media (max-width: 768px) {
+    // Clear button overrides - extremely high specificity
+    .clear-button-container .clear-button.mat-mdc-icon-button .mat-icon,
+    .clear-button-container .clear-button.mat-icon-button .mat-icon,
+    .clear-button.mat-mdc-icon-button .mat-icon,
+    .clear-button.mat-icon-button .mat-icon {
+      color: var(--md-sys-color-error) !important;
+      fill: var(--md-sys-color-error) !important;
+      
+      // Prevent any Material theme colors from overriding
+      &.mat-icon {
+        color: var(--md-sys-color-error) !important;
+      }
+    }
+    
+    // Language toggle overrides - extremely high specificity
+    .language-toggle button.mat-mdc-icon-button,
+    .language-toggle button.mat-icon-button {
+      color: var(--md-sys-color-primary) !important;
+      
+      .mat-icon {
+        color: var(--md-sys-color-primary) !important;
+        fill: var(--md-sys-color-primary) !important;
+      }
+    }
+    
+    // Override any Material Design button theme colors on mobile
+    .mat-mdc-icon-button,
+    .mat-icon-button {
+      &.clear-button {
+        color: var(--md-sys-color-error) !important;
+        
+        .mat-icon {
+          color: var(--md-sys-color-error) !important;
+        }
+      }
+    }
+    
+    .language-toggle .mat-mdc-icon-button,
+    .language-toggle .mat-icon-button {
+      color: var(--md-sys-color-primary) !important;
+      
+      .mat-icon {
+        color: var(--md-sys-color-primary) !important;
+      }
+    }
+  }
+}
+
+// Fallback for very stubborn mobile browsers
+@media screen and (max-device-width: 768px) {
+  .clear-button * {
+    color: #d32f2f !important;
+  }
+  
+  .language-toggle button * {
+    color: #0078d4 !important;
+  }
+}
+
+// Immediate color application to prevent flash - these load before Angular Material
+.clear-button {
+  // ...existing code...
+  
+  // Immediate color application
+  .mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    color: inherit;
+    
+    // Prevent Material Design from changing color during initialization
+    &[data-mat-icon-name="refresh"] {
+      color: var(--md-sys-color-error) !important;
+    }
+  }
+}
+
+// Additional immediate overrides for page load
+.mat-icon {
+  &[data-mat-icon-name="refresh"] {
+    color: var(--md-sys-color-error) !important;
+    
+    @media (max-width: 768px) {
+      color: var(--md-sys-color-error) !important;
+    }
+  }
+}
+
+// Dialog styling for larger, more visible confirmation modal
+::ng-deep .dark-backdrop {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(2px);
+}
+
+::ng-deep .large-dialog-panel {
+  .mat-mdc-dialog-container {
+    --mdc-dialog-container-color: var(--md-sys-color-surface-container-high);
+    border-radius: 24px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .mat-mdc-dialog-content {
+    padding: 24px !important;
+  }
+  
+  .mat-mdc-dialog-actions {
+    padding: 16px 24px 24px 24px !important;
+    
+    .mat-mdc-button {
+      min-width: 120px !important;
+      padding: 12px 24px !important;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      border-radius: 12px !important;
+      margin-left: 12px !important;
+    }
+  }
+}

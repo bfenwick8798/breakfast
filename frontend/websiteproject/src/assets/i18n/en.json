@@ -1,0 +1,79 @@
+{
+  "app": {
+    "title": "Breakfast Order",
+    "language": "Language"
+  },
+  "navigation": {
+    "home": "Home",
+    "menu": "Menu",
+    "cart": "Cart"
+  },
+  "categories": {
+    "main": "Main Dishes",
+    "side": "Sides",
+    "drink": "Drinks",
+    "extra": "Extras"
+  },
+  "items": {
+    "pancakes": "Pancakes",
+    "eggs_benedict": "Eggs Benedict",
+    "french_toast": "French Toast",
+    "omelette": "Omelette",
+    "bacon": "Bacon",
+    "sausage": "Sausage",
+    "hash_browns": "Hash Browns",
+    "toast": "Toast",
+    "coffee": "Coffee",
+    "tea": "Tea",
+    "orange_juice": "Orange Juice",
+    "milk": "Milk",
+    "butter": "Butter",
+    "jam": "Jam",
+    "syrup": "Maple Syrup",
+    "cream": "Cream"
+  },
+  "descriptions": {
+    "pancakes": "Fluffy pancakes served with maple syrup",
+    "eggs_benedict": "Poached eggs on English muffin with hollandaise sauce",
+    "french_toast": "Thick cut brioche with cinnamon and vanilla",
+    "omelette": "Three-egg omelette with your choice of fillings",
+    "bacon": "Crispy smoked bacon strips",
+    "sausage": "Homemade breakfast sausage links",
+    "hash_browns": "Golden crispy potato hash browns",
+    "toast": "Fresh baked bread, choice of white or whole wheat",
+    "coffee": "Freshly brewed coffee",
+    "tea": "Selection of premium teas",
+    "orange_juice": "Fresh squeezed orange juice",
+    "milk": "Fresh whole milk",
+    "butter": "Creamy butter",
+    "jam": "Homemade strawberry jam",
+    "syrup": "Pure Canadian maple syrup",
+    "cream": "Fresh dairy cream"
+  },
+  "actions": {
+    "add_to_order": "Add to Order",
+    "remove_from_order": "Remove",
+    "clear_order": "Clear Order",
+    "place_order": "Place Order",
+    "increase_quantity": "Increase quantity",
+    "decrease_quantity": "Decrease quantity"
+  },
+  "order": {
+    "your_order": "Your Order",
+    "total": "Total",
+    "quantity": "Quantity",
+    "empty_order": "Your order is empty",
+    "order_placed": "Order placed successfully!",
+    "item_added": "Item added to order",
+    "item_removed": "Item removed from order"
+  },
+  "common": {
+    "price": "Price",
+    "currency": "$",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  }
+}
